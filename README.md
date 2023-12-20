@@ -42,4 +42,4 @@ Good Luck!
 ## Common error
 
 * `AttributeError: module 'YOUR DIRECTORY' has no attribute 'minimax'`: You must copy `__init__.py` inside your directory and have a `minimax.py` file
-* `AttributeError: module 'IA_template.minimax' has no attribute 'init'` (or `minimax_play` or `opponent_play`): You must have the function `init`, `minimax_play` and `opponent_play` inside the `minimax.py` file
+* `AttributeError: module 'YOUR DIRECTORY.minimax' has no attribute 'init'` (or `minimax_play` or `opponent_play`): You must have the function `init`, `minimax_play` and `opponent_play` inside the `minimax.py` file
