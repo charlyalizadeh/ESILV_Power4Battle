@@ -13,17 +13,22 @@ def init():
 
 def minimax_play():
     # Your IA plays and return the actioninate it played
-    # The format must be a tuple `action` with:
-    #   - action[0]: the row coordinate
-    #   - action[1]: the column coordinate
+    # Action must the index of the column you played (between 0 and 11)
 
-    # Here the exemple plays the first empty square
-    empty = np.where(my_board.board == 0)
-    action = (empty[0][0], empty[1][0])
-    my_board.board[action[0], action[1]] = 1 # !! DONT FORGET TO PLAY AND THEN RETURN THE MOVE YOU PLAYED !!
-    return action
+    # Here the exemple plays the first column with an empty square
+    for i in range(12):
+        if np.where(my_board.board[:, i] == 0)[0].size != 0:
+            return i
+    return -1
+
+def get_first_empty_row(col):
+    elements = np.where(col == 0)
+    if elements[0].size == 0:
+        return -1
+    else:
+        return elements[0][-1]
 
 def opponent_play(action):
     # The opponent plays
     # The format of `action` is the same as in `minimax_play`
-    my_board.board[action[0], action[1]] = -1
+    my_board.board[get_first_empty_row(my_board.board[:, action]), action] = -1

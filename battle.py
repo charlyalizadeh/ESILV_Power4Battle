@@ -52,8 +52,12 @@ def sublist(lst1, lst2):
             if j == len(lst1):
                 return True
 
-
-
+def get_first_empty_row(col):
+    elements = np.where(col == 0)
+    if elements[0].size == 0:
+        return -1
+    else:
+        return elements[0][-1]
 
 
 def check_win(board):
@@ -103,7 +107,7 @@ while True:
     print(f"{first_dir} playing...")
     coord1 = ia1.minimax_play()
     print(f"Played: {coord1}")
-    board[coord1[0], coord1[1]] = 1
+    board[get_first_empty_row(board[:, coord1]), coord1] = 1
     ia2.minimax.opponent_play(coord1)
     display_board(board)
     state = check_win(board)
@@ -117,7 +121,7 @@ while True:
     print(f"{second_dir} playing...")
     coord2 = ia2.minimax_play()
     print(f"Played: {coord2}")
-    board[coord2[0], coord2[1]] = -1
+    board[get_first_empty_row(board[:, coord2]), coord2] = -1
     ia1.minimax.opponent_play(coord2)
     display_board(board)
     state = check_win(board)
