@@ -98,15 +98,15 @@ second_dir = choose_player("Please chose the second player (O):")
 clear()
 ia1 = __import__(f"{first_dir.name}")
 ia2 = __import__(f"{second_dir.name}")
-print(f"{first_dir} VS {second_dir}")
+print(f"===== {first_dir} VS {second_dir} =====")
 board = np.zeros((6, 12))
 ia1.minimax.init()
 ia2.minimax.init()
-display_board(board)
+#display_board(board)
 while True:
     print(f"{first_dir} playing...")
     coord1 = ia1.minimax_play()
-    print(f"Played: {coord1}")
+    print(f"{first_dir} played: {coord1}")
     board[get_first_empty_row(board[:, coord1]), coord1] = 1
     ia2.minimax.opponent_play(coord1)
     display_board(board)
@@ -117,10 +117,10 @@ while True:
     elif state == -2:
         print("Null game")
         break
-    input()
+    input("Press a key...\n\n")
     print(f"{second_dir} playing...")
     coord2 = ia2.minimax_play()
-    print(f"Played: {coord2}")
+    print(f"{second_dir} played: {coord2}")
     board[get_first_empty_row(board[:, coord2]), coord2] = -1
     ia1.minimax.opponent_play(coord2)
     display_board(board)
@@ -131,4 +131,4 @@ while True:
     elif state == -2:
         print("Null game")
         break
-    input()
+    input("Press a key...\n\n")
