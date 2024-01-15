@@ -16,10 +16,14 @@ def minimax_play():
     # Action must the index of the column you played (between 0 and 11)
 
     # Here the exemple plays the first column with an empty square
+    val = -1
     for i in range(12):
         if np.where(my_board.board[:, i] == 0)[0].size != 0:
-            return i
-    return -1
+            val = i
+            break
+    if val != -1:
+        my_board.board[get_first_empty_row(my_board.board[:, val]), val] = 1
+    return val
 
 def get_first_empty_row(col):
     elements = np.where(col == 0)
