@@ -1,6 +1,7 @@
 # Automatic battle
 
 Code to automate the battle between different IA.
+Tuto video [https://drive.google.com/file/d/1O7fwxtvSa-VGS8lOpqBNSUNB9xdxNh-F/view?usp=drive_link](https://drive.google.com/file/d/1O7fwxtvSa-VGS8lOpqBNSUNB9xdxNh-F/view?usp=drive_link)
 
 ## Usage
 
